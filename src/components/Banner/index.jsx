@@ -5,6 +5,8 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Header } from "../Header";
 import useFetch from "../../hooks/useFetch";
+import Loading  from "../Loading/";
+
 
 export const Banner = () => {
   const { data, loading, error } = useFetch("http://localhost:9000/api/post/");
@@ -21,14 +23,14 @@ export const Banner = () => {
   }, [data, loading, error]);
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <Loading type="spin" color="#000" />;
   }
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log("ultimos post...", showPostActual);
+
 
   return (
     <>
@@ -40,11 +42,18 @@ export const Banner = () => {
           clickable: true,
         }}
         modules={[Pagination]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false, // Para que no se detenga al interactuar con el carrusel
+        }}
+        loop={true} // Bucle infinito
+        effect="fade" // Efecto de transición
+       
       >
         {showPostActual.map((post, index) => (
           <SwiperSlide key={index}>
             <div>
-              <img src={post.miniature} alt={post.title} />
+              <img src={post.miniature} alt={post.title}  />
             </div>
           </SwiperSlide>
         ))}
