@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-import axios from 'axios';
+import { useEffect, useState, useCallback } from "react";
+import axios from "axios";
 
 function useFetch(url, token = null) {
   const [data, setData] = useState(null);
@@ -9,13 +9,12 @@ function useFetch(url, token = null) {
   const fetchData = useCallback(async () => {
     try {
       const headers = {};
-
-      // Agregar el encabezado de autorización solo si se proporciona un token
       if (token) {
         headers.Authorization = `Bearer ${token}`;
       }
 
       const response = await axios.get(url, { headers });
+
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -26,8 +25,7 @@ function useFetch(url, token = null) {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]); // Aquí utilizamos fetchData como dependencia
-
+  }, [fetchData]);
   return { data, loading, error };
 }
 

@@ -96,3 +96,17 @@ ul {
   transform: translate3d(0, 0, 0);
   z-index: 10;
 }
+
+/* En tu archivo CSS (puede variar según tu estructura) */
+.swiper-slide {
+  display: flex; /* Hacer que el contenedor sea un flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}

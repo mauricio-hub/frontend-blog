@@ -5,8 +5,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Header } from "../Header";
 import useFetch from "../../hooks/useFetch";
-import Loading  from "../Loading/";
-
+import Loading from "../Loading/";
 
 export const Banner = () => {
   const { data, loading, error } = useFetch("http://localhost:9000/api/post/");
@@ -30,8 +29,6 @@ export const Banner = () => {
     return <div>Error: {error.message}</div>;
   }
 
-
-
   return (
     <>
       <Header />
@@ -48,12 +45,20 @@ export const Banner = () => {
         }}
         loop={true} // Bucle infinito
         effect="fade" // Efecto de transición
-       
       >
         {showPostActual.map((post, index) => (
-          <SwiperSlide key={index}>
-            <div>
-              <img src={post.miniature} alt={post.title}  />
+          <SwiperSlide key={index} className="swiper-slide">
+            <div
+              style={{
+                maxWidth: "1500px",
+                maxHeight: "1500px",
+              }}
+            >
+              <img
+                src={post.miniature}
+                alt={post.title}
+                className="swiper-image"
+              />
             </div>
           </SwiperSlide>
         ))}
