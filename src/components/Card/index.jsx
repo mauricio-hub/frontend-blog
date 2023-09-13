@@ -7,7 +7,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Chip } from "@mui/material";
 
-export const CardBlog = ({ imgUrl, title, descrption,slug }) => {
+export const CardBlog = ({ imgUrl, title, descrption, slug }) => {
+    
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -17,7 +19,7 @@ export const CardBlog = ({ imgUrl, title, descrption,slug }) => {
         image={imgUrl}
       />
       <CardContent>
-       <Chip label={slug} color="primary" />
+        <Chip label={slug} color="primary" />
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
