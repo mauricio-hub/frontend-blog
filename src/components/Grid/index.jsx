@@ -8,7 +8,14 @@ import { usePostData } from "../../context/PostProvider";
 export const GridCards = () => {
   const { allPost, loading, error } = usePostData();
 
-  
+
+  const truncateText = (text, limit) => {
+    const words = text.split(" ");
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ") + " ...";
+    }
+    return text;
+  };
 
   if (loading) {
     return <Loading type="spin" color="#000" />;
@@ -19,7 +26,7 @@ export const GridCards = () => {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginTop: 20, marginBottom: 20 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -32,7 +39,7 @@ export const GridCards = () => {
               key={index}
               imgUrl={post.miniature}
               title={post.title}
-              descrption={post.content}
+              descrption={truncateText(post.content, 30)} 
               slug={post.slug}
             />
           </Grid>

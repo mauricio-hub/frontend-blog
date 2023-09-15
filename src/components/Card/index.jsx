@@ -28,8 +28,7 @@ export const CardBlog = ({ imgUrl, title, descrption, slug }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Leer post</Button>
       </CardActions>
     </Card>
   );
