@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
 import { Header } from "../Header";
 import Loading from "../Loading/";
 import { usePostData } from "../../context/PostProvider";
+
 export const Banner = () => {
   const { showPostActual, loading, error } = usePostData();
-
-  
 
   if (loading) {
     return <Loading type="spin" color="#000" />;
@@ -19,37 +19,32 @@ export const Banner = () => {
     return <div>Error: {error.message}</div>;
   }
 
-
   return (
     <>
       <Header />
 
       <Swiper
-        spaceBetween={10}
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false, // Para que no se detenga al interactuar con el carrusel
-        }}
-        loop={true} // Bucle infinito
-        effect="fade" // Efecto de transición
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
       >
         {showPostActual.map((post, index) => (
-          <SwiperSlide key={index} className="swiper-slide">
-            <div
-              style={{
-                maxWidth: "1500px",
-                maxHeight: "1500px",
-              }}
-            >
-              <img
-                src={post.miniature}
-                alt={post.title}
-                className="swiper-image"
-              />
+          <SwiperSlide key={index}>
+            <img
+              src={post.miniature}
+              alt={post.title}
+              className="image-cover"
+            />
+            <div className="slide-overlay">
+              <h1 className="multiline-title">{post.title}</h1>
             </div>
           </SwiperSlide>
         ))}

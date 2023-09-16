@@ -25,8 +25,31 @@ export const GridCards = () => {
     return <div>Error: {error.message}</div>;
   }
 
+
+
+  const categories = allPost.map((post) => post.category.title);
+
+ // console.log('****',categories);
+
+  const uniqueCategories = [...new Set(categories)];
+
+  
+ 
+
+
+
   return (
     <Box sx={{ flexGrow: 1, marginTop: 20, marginBottom: 20 }}>
+      <h2>Post rescientes</h2>
+
+      {
+        <ul>
+          {uniqueCategories.map((category, index) => (
+            <li key={index}>{category}</li>
+          ))}
+        </ul>
+      }
+
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
