@@ -44,7 +44,7 @@ export const Banner = () => {
               className="image-cover"
             />
             <div className="slide-overlay">
-              <h1 className="multiline-title">{post.title}</h1>
+              <h1 style={{color:'#fff'}}>{post.title}</h1>
             </div>
           </SwiperSlide>
         ))}

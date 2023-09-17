@@ -27,7 +27,7 @@ export const Header = () => {
       <Container style={{maxWidth: 1550}}>
         <Toolbar disableGutters>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography>BlogApp</Typography>
+            <Typography style={{color:'#fff'}}>BlogApp</Typography>
           </Box>
 
           <Box

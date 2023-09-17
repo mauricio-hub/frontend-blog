@@ -17,7 +17,7 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="md">
-        <Typography variant="body2" align="center">
+        <Typography variant="body2" align="center" style={{color:'#fff'}}>
           © {new Date().getFullYear()} BlogApp
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
@@ -47,8 +47,8 @@ const SubFooter = () => {
       }}
     >
       <Container maxWidth="md">
-        <Typography variant="caption">
-          Síguenos en nuestras redes sociales para mantenerte actualizado.
+        <Typography variant="caption" >
+          Desarrollado por <a href="https://www.linkedin.com/in/mauricio-gonzalez-frontend-developer/" style={{color:'#fff'}}>Mauricio González</a>
         </Typography>
       </Container>
     </Box>

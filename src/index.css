@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  background: #eee;
+  background: #F8F9FA;
   font-family: 'Lora', serif; /* Aplicar la fuente personalizada a todo el documento */
   font-size: 14px;
   color: #000;
@@ -25,11 +25,12 @@ body {
 
 li {
   list-style-type: none;
+  
 }
 
 /* Estilo básico para encabezados */
 h1, h2, h3 {
-  font-weight: bold;
+  color: #495057;
   margin-bottom: 0.625rem; /* 10px / 16px = 0.625rem */
   font-family: 'Lora', serif; /* Aplicar la fuente personalizada a los encabezados */
 }
@@ -51,6 +52,7 @@ p {
   margin-bottom: 0.9375rem; /* 15px / 16px = 0.9375rem */
   font-family: 'Lora', serif; /* Aplicar la fuente personalizada a los encabezados */
   font-size: 14px;
+  color: #495057;
 }
 
 ul {
@@ -67,12 +69,6 @@ ul {
 
 
 /*slides banner*/
-
-.swiper {
-  width: 100%;
-  height: 100%;
-  max-width: 1550px;
-}
 
 .swiper-slide {
   text-align: center;
@@ -152,4 +148,16 @@ ul {
 
 .multiline-title.break-line {
   white-space: normal; /* Aplica el salto de línea si se agrega la clase "break-line" */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
